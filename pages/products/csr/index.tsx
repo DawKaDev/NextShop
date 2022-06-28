@@ -37,7 +37,7 @@ const ProductsCsrPage = () => {
     <MainContainer>
       <div>Products page</div>
       <Pagination pages={20} page={page} action={handlePagingAction}/>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {data.length && data.map((product) => (
           <li key={product.id} className="shadow-lg border-2 rounded-lg p-4">
             <ProductListItem data={{

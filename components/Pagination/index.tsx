@@ -35,7 +35,6 @@ export const Pagination = ({pages ,page, action}: PaginationTypes) => {
         items.push(pages);
       }
     }
-    console.log(items);
     return items;
   }
 
