@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import MainContainer from "../../../components/Main";
 import { Pagination } from "../../../components/Pagination";
 import { ProductListItem } from "../../../components/Product";
 
@@ -28,13 +27,13 @@ const ProductsCsrPage = () => {
   },[page]);
 
   if (isLoading) {
-    return <MainContainer><div>Loading...</div></MainContainer>;
+    return <div>Loading...</div>;
   }
   if (!data || !products) {
-    return <MainContainer><div>No data found!</div></MainContainer>;
+    return <div>No data found!</div>;
   }
   return (
-    <MainContainer>
+    <>
       <div>Products page</div>
       <Pagination pages={20} page={page} action={handlePagingAction}/>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -53,7 +52,7 @@ const ProductsCsrPage = () => {
         )
         )}
       </ul>
-    </MainContainer>
+    </>
   );
 };
 
