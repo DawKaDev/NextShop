@@ -1,14 +1,13 @@
 import { InferGetStaticPropsType } from "next";
-import MainContainer from "../../../components/Main"
 import { ProductListItem } from "../../../components/Product";
 import { Pagination } from "../../../components/Pagination";
 
 const PageNumberPage = ({data, pages, page}: InferGetStaticPropsType<typeof getStaticProps>) => {
   if(!data){
-    return <MainContainer><div>Brak danych</div></MainContainer>;
+    return <div>Brak danych</div>;
   }
   return (
-    <MainContainer>
+    <>
       <div>Products page</div>
       <Pagination pages={pages} page={page}/>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -27,7 +26,7 @@ const PageNumberPage = ({data, pages, page}: InferGetStaticPropsType<typeof getS
         )
         )}
       </ul>
-    </MainContainer>
+    </>
   )
 }
 

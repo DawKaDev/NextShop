@@ -1,10 +1,9 @@
 import { InferGetStaticPropsType } from "next";
-import MainContainer from "../../../components/Main";
 import { Product, ProductListItem } from "../../../components/Product";
 
 const ProductsPage = ({data}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <MainContainer>
+    <>
       <div>Products page</div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {data.map(product => (
@@ -22,7 +21,7 @@ const ProductsPage = ({data}: InferGetStaticPropsType<typeof getStaticProps>) =>
         )
         )}
       </ul>
-    </MainContainer>
+    </>
   );
 };
 

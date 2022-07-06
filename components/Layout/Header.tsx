@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import { PhoneIcon, MailIcon } from '@heroicons/react/outline';
-import { Container } from "./Container";
+import { Container } from "../Container";
 
 interface NavLinkProps {
   href: string,

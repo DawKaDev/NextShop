@@ -4,7 +4,7 @@ interface RatingProps {
 
 const Rating = ({ rating }: RatingProps) => {
   return (
-    <div className="text-white absolute -top-2 -left-2 text-md text-center pt-1.5 font-bold h-10 w-10 bg-blue-400 rounded-full">{rating}</div>
+    <div className="absolute -top-2 -left-2 text-sm text-center pt-2 font-bold h-10 w-10 bg-white border-2 border-teal-800 text-teal-800 rounded-full">{rating}</div>
   );
 }
 

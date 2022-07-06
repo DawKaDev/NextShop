@@ -1,7 +1,7 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import MainContainer from "../../components/Main";
 import { Product } from "../../components/Product";
 
 const ProductIdPage = ({data}: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -12,23 +12,26 @@ const ProductIdPage = ({data}: InferGetStaticPropsType<typeof getStaticProps>) =
   }
 
   if(!data){
-    return <MainContainer><div>Brak danych</div></MainContainer>;
+    return <div>Brak danych</div>;
   }
 
   return (
-    <MainContainer>
-      <Link href="/products/ssg"><a>Lista Produktów</a></Link>
-      <Product data={{
-        id: data.id,
-        title: data.title,
-        description: data.description,
-        longDescription: data.longDescription,
-        thumbnailUrl: data.image,
-        thumbnailAlt: data.title,
-        price: data.price,
-        rating: data.rating.rate
-      }}/>
-    </MainContainer>
+    <>
+      <NextSeo
+        title={data.title}
+        description={data.description}/>
+        <Link href="/products/ssg"><a>Lista Produktów</a></Link>
+        <Product data={{
+          id: data.id,
+          title: data.title,
+          description: data.description,
+          longDescription: data.longDescription,
+          thumbnailUrl: data.image,
+          thumbnailAlt: data.title,
+          price: data.price,
+          rating: data.rating.rate
+        }}/>
+    </>
   )
 }
 
