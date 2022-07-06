@@ -1,4 +1,5 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Product } from "../../components/Product";
@@ -16,17 +17,20 @@ const ProductIdPage = ({data}: InferGetStaticPropsType<typeof getStaticProps>) =
 
   return (
     <>
-      <Link href="/products/ssg"><a>Lista Produktów</a></Link>
-      <Product data={{
-        id: data.id,
-        title: data.title,
-        description: data.description,
-        longDescription: data.longDescription,
-        thumbnailUrl: data.image,
-        thumbnailAlt: data.title,
-        price: data.price,
-        rating: data.rating.rate
-      }}/>
+      <NextSeo
+        title={data.title}
+        description={data.description}/>
+        <Link href="/products/ssg"><a>Lista Produktów</a></Link>
+        <Product data={{
+          id: data.id,
+          title: data.title,
+          description: data.description,
+          longDescription: data.longDescription,
+          thumbnailUrl: data.image,
+          thumbnailAlt: data.title,
+          price: data.price,
+          rating: data.rating.rate
+        }}/>
     </>
   )
 }
